@@ -1,0 +1,241 @@
+% Quick start guide
+\documentclass{beamer}
+
+% \usepackage[colorlinks=true]{hyperref}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{apalike}
+\usepackage{amsthm}
+
+\usetheme{default}
+
+\newtheorem{probDef}{Definition}
+\newtheorem*{probDef*}{Definition}
+\newtheorem{claim}{Claim}
+\newtheorem*{claim*}{Claim}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{probExample}{Example}
+\newtheorem{probRule}{Rule}
+\newtheorem{probAxiom}{Axiom}
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{probExercise}{Exercise}
+
+\newtheorem{manualprobRuleinner}{Rule}
+\newenvironment{manualProbRule}[1]{%
+  \renewcommand\themanualprobRuleinner{#1}%
+  \manualprobRuleinner
+}{\endmanualprobRuleinner}
+
+\newtheorem{manualprobExampleinner}{Example}
+\newenvironment{manualProbExample}[1]{%
+  \renewcommand\themanualprobExampleinner{#1}%
+  \manualprobExampleinner
+}{\endmanualprobExampleinner}
+
+\newcounter{saveenumi}
+\newcommand{\seti}{\setcounter{saveenumi}{\value{enumi}}}
+\newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
+\newcommand{\keepi}{\addtocounter{saveenumi}{-1}\setcounter{enumi}{\value{saveenumi}}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% Title page details
+\title{Bonsai.ML}
+\subtitle{Intelligent Experimental Control}
+\author{Nicholas Guilbeault and Gon\c{c}alo Lopes and Joaqu\'{i}n Rapela}
+\institute{Gatsby Computational Neuroscience Unit\\NeuroGEARS Ltd.}
+\date{December 5, 2024}
+
+\AtBeginSection[ ]
+{
+\begin{frame}{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}
+    \frametitle{History of Bonsai.ML}
+
+    \begin{itemize}
+
+        \item grant application
+
+        \item developing tools
+
+        \item who cares about Bonsai.ML tools? $\rightarrow$ more focus on
+            dissemination
+
+        \item real-time ML
+
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Goals of Bonsai.ML}
+
+    \begin{itemize}
+        \item allow non-programmers use ML tools,
+        \item learn from non-programmers what ML tools are useful for them
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Need for Real-Time and Reactive ML}
+
+    Conventional ML operates on stored datasets. We need real-time ML that
+    operates on infinite data stream with time-varying statistical properties.
+
+    If a sensor fails, our inferences need to continue. That is, we need
+    reactive ML (e.g., \href{https://rxinfer.ml/}{rx.infer}).
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bonsai.ML demos}
+
+\end{frame}
+
+\section{Linear Regression}
+
+\begin{frame}
+    \frametitle{Linear Regression: Fundamental Concepts}
+
+    \begin{itemize}
+        \item main concepts of linear regression
+        \item Online Bayesian Linear Regression (can process infinite data streams, but assumes stationarity)
+        \item Recursive least squares (can process infinite data streams, and
+            does not assume stationarity)
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Linear Regression: Practical}
+
+    Estimation of receptive fields of visual cells from the Allen Institute.
+
+\end{frame}
+
+\input{linearRegression}
+
+\section{Bonsai-Python Integration}
+
+\begin{frame}
+    \frametitle{Bonsai-Python Integration: Fundamental Concepts}
+
+    \begin{itemize}
+        \item architecture
+        \item async/sync regimes
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Bonsai-Python Integration: Practical}
+
+    \begin{itemize}
+        \item Bonsai-Python Hello World
+        \item Bonsai-Python advanced example
+    \end{itemize}
+
+\end{frame}
+
+\section{Linear Dynamical Systems}
+
+\begin{frame}
+    \frametitle{Linear Dynamical Systems: Fundamental Concepts}
+
+    Fundamental concepts of LDS.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Linear Dynamical Systems: Practical}
+
+    Estimation of foraging mice kinematics.
+
+\end{frame}
+
+\section{Hidden Markov Models}
+
+\begin{frame}
+    \frametitle{Hidden Markov Models: Fundamental Concepts}
+
+    Fundamental concepts of HMMs.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Hidden Markov Models: Practical}
+
+    Estimation of behavioral states of foraging mice.
+
+\end{frame}
+
+\section{State-Space Decoders}
+
+\begin{frame}
+    \frametitle{State-Space Decoders: Fundamental Concepts}
+
+    Fundamental concepts of state-space decoders.
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{State-Space Decoders: Practical}
+
+    Mice position decoding from hippocampal population activity.
+
+\end{frame}
+
+\section{Discussion}
+
+\begin{frame}
+    \frametitle{Discussion}
+
+    \begin{itemize}
+        \item interactions between experimental and computational
+            neuroscientists (documentation)
+
+        \item Bonsai.ML roadmap
+
+            \begin{itemize}
+
+                \item our proposal
+                \item suggestions?
+
+            \end{itemize}
+
+        \item suggestions for:
+
+            \begin{itemize}
+                \item new ML models to integrate into Bonsai
+                \item new applications areas to investigate with Bonsai.ML
+            \end{itemize}
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{References}
+
+    \tiny{
+        \bibliographystyle{apalike}
+        \bibliography{probability,informationTheory,machineLearning,gaussianProcesses,latentsVariablesModels,linearDynamicalSystems,numericalMethods}
+    }
+\end{frame}
+
+\end{document}
