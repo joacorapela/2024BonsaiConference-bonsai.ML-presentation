@@ -2,4 +2,5 @@
 presentation/*
 !presentation/*.tex
 !presentation/*.pdf
+!presentation/Makefile
 
