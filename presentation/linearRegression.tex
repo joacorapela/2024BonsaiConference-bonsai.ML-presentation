@@ -24,7 +24,19 @@
 \begin{frame}
     \frametitle{Estimating nonlinear receptive fields from natural images}
 
-    \href{https://jov.arvojournals.org/article.aspx?articleid=2192869}{Rapela et al., 2006}.
+    \tiny
+    \begin{eqnarray}
+        y(\mathbf{x})&=&k_{0}+\sum_{i,j=1}^{N}k_{1}(i, j)x(i, j)\label{eq:volterraSpatial}\\
+        &+&\sum_{i_{1},j_{1},i_{2},j_{2}=1}^{N}k_{2}(i_{1},j_{1},i_{2},j_{2})x(i_{1},j_{1})x(i_{2},j_{2})+\ldots\nonumber\\
+        &+&\sum_{i_{1},j_{1},\ldots,i_{Q},j_{Q}=1}^{N}k_{Q}(i_{1},j_{1},\ldots,i_{Q},j_{Q})x(i_{1},j_{1})\ldots
+        x(i_{Q},j_{Q})+\;\varepsilon\nonumber\\
+        y(\mathbf{x})&=&\mathbf{Aq(x)}+\;\varepsilon
+    \end{eqnarray}
+
+		\begin{center}
+			\includegraphics[width=1.5in]{figures/jov-6-4-11-fig020.png}
+		\end{center}
+        \hfill\scriptsize\href{https://jov.arvojournals.org/article.aspx?articleid=2192869}{Rapela et al., 2006}.
 
 \end{frame}
 
@@ -107,6 +119,8 @@
     \normalsize
 \end{frame}
 
+\begin{comment}
+
 \begin{frame}
     \frametitle{Basis functions for regression}
 
@@ -130,6 +144,19 @@
         \includegraphics[width=4in]{figures/exampleDataset.png}
     \end{center}
     \hfill\scriptsize\citet{bishop06}
+
+\end{frame}
+
+\end{comment}
+
+\begin{frame}
+
+\begin{alertblock}{Notes}
+    \begin{itemize}
+        \item We learned how to build a linear regression model.
+        \item But, how can we learn the model parameters $w$?
+    \end{itemize}
+\end{alertblock}
 
 \end{frame}
 
@@ -217,6 +244,18 @@
 \end{frame}
 
 \begin{frame}
+
+\begin{alertblock}{Notes}
+    \begin{itemize}
+        \item We learned how to estimate the parameters of a linear regression
+            models by least squares.
+        \item But, how to avoid overfitting in the estimation?
+    \end{itemize}
+\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
     \frametitle{Regularised least-squares estimation of model parameters}
 
     To cope with the overfitting of least squares, we can add to the least
@@ -291,8 +330,20 @@ term corresponding to $\boldsymbol{\mu}$ will be the minimum.
 \begin{frame}
     \frametitle{Code for regularised least-squares estimation of model parameters}
     \begin{itemize}
-        \item \href{file:///nfs/ghome/live/rapela/dev/teaching/gcnuBridging2023/repo/docs/sphinx/build/html/auto\_examples/bayesianLinearRegression/plotRegularizedLeastSquares.html\#sphx-glr-auto-examples-bayesianlinearregression-plotregularizedleastsquares-py}{control of overfitting}
+        \item \href{https://github.com/joacorapela/gcnuBridging2023/blob/master/docs/sphinx/build/html/notebooks/auto_examples/bayesianLinearRegression/plotRegularizedLeastSquares.ipynb}{control of overfitting}
     \end{itemize}
+\end{frame}
+
+\begin{frame}
+
+\begin{alertblock}{Notes}
+    \begin{itemize}
+        \item So far we have assummed deterministic parameters. But they are
+            random quantities.
+        \item How can we build linear regression models for random parameters?
+    \end{itemize}
+\end{alertblock}
+
 \end{frame}
 
 \subsection{Maximum-likelihood regression}
@@ -380,7 +431,21 @@ term corresponding to $\boldsymbol{\mu}$ will be the minimum.
     \normalsize
 \end{frame}
 
+\begin{frame}
+
+\begin{alertblock}{Notes}
+    \begin{itemize}
+        \item We have learned how to estimate random parameters in linear
+            regression models.
+        \item How can we incorporate prior assumptions in this estimation?
+    \end{itemize}
+\end{alertblock}
+
+\end{frame}
+
 \subsection{Bayesian linear regression}
+
+\begin{comment}
 
 \begin{frame}
     \frametitle{Bayesian linear regression: motivation}
@@ -394,7 +459,7 @@ term corresponding to $\boldsymbol{\mu}$ will be the minimum.
 
 \end{frame}
 
-\subsubsection{Batch Bayesian linear regression}
+\end{comment}
 
 \begin{frame}
     \frametitle{Batch Bayesian linear regression: posterior distribution of parameters}
@@ -403,7 +468,7 @@ term corresponding to $\boldsymbol{\mu}$ will be the minimum.
 	In Bayesian linear regression we seek the posterior distribution of the
 weights of the linear regression model, $\mathbf{w}$, given the observations, which
 is proportional to the product of the likelihood function,
-$p(\mathbf{t}|\mathbf{w})$, and the prior, $p(\mathbf{w})$; i.e., 
+$p(\mathbf{t}|\mathbf{w})$, and the prior, $p(\mathbf{w})$; i.e.,
 
 	\begin{align}
 		p(\mathbf{w}|\mathbf{t})\propto
@@ -417,8 +482,7 @@ Eq.~\ref{eq:likelihoodLinearRegression} and the following prior
 		p(\mathbf{w})=\mathcal{N}(\mathbf{w}|\mathbf{0},\alpha^{-1}\mathbf{I})
 	\end{align*}
 
-	Using the expression of the conditional of the Linear Gaussian model,
-Eq.~\ref{eq:conditionalLinearGaussianModel}, we obtain
+	Using the expression of the conditional of the Linear Gaussian model we obtain
 
 	\begin{align}
 		p(\mathbf{w}|\mathbf{t})&=\mathcal{N}(\mathbf{w}|\mathbf{m}_N,\mathbf{S}_N)\nonumber\\
@@ -464,10 +528,23 @@ of the basis function linear regression model.
     Available \href{https://joacorapela.github.io/gcnuBridging2023/auto\_examples/bayesianLinearRegression/plotBatchBayesianLinearRegression.html\#sphx-glr-auto-examples-bayesianlinearregression-plotbatchbayesianlinearregression-py}{here}
 \end{frame}
 
+\begin{frame}
+
+\begin{alertblock}{Notes}
+    \begin{itemize}
+        \item Now we know how to do batch Bayesian linear regression.
+        \item However, in Bonsai we don't want to work with batch data. We want
+            to do online processing of infinite data streams. How can we do
+            this?
+    \end{itemize}
+\end{alertblock}
+
+\end{frame}
+
 \subsubsection{Online Bayesian linear regression}
 
 \begin{frame}
-    \frametitle{Online Bayesian linear regression: recursive update of posterior distribution of parameters}
+    \frametitle{Recursive update of posterior distribution of the parameters for conditionally independent observations}
 	\scriptsize
 	\begin{claim}[recursive update]
 		If the observations, $\{\mathbf{t}_1,\ldots,\mathbf{t}_n,\dots\}$, are linearly independent when conditioned on the model parameters, $\boldsymbol{\theta}$, then for any $n\in\mathbb{N}$
@@ -480,7 +557,7 @@ of the basis function linear regression model.
 \end{frame}
 
 \begin{frame}
-    \frametitle{Online Bayesian linear regression: recursive update of posterior distribution of parameters}
+    \frametitle{Recursive update of posterior distribution of the parameters for conditionally independent observations}
 	\tiny
 	\begin{proof}
 		By induction on $H_n: p(\boldsymbol{\theta}|\mathbf{t}_1,\ldots,\mathbf{t}_n)=K\ p(\mathbf{t}_n|\boldsymbol{\theta})p(\boldsymbol{\theta}|\mathbf{t}_1,\ldots,\mathbf{t}_{n-1})$.
@@ -504,26 +581,86 @@ of the basis function linear regression model.
 \end{frame}
 
 \begin{frame}
-    \frametitle{References}
+    \frametitle{Recursive update of the posterior distribution of the
+    parameters for a conjugate prior}
 
-    \tiny{
-        \bibliographystyle{apalike}
-        \bibliography{probability,informationTheory,machineLearning,gaussianProcesses,latentsVariablesModels,linearDynamicalSystems,numericalMethods}
-    }
+    \scriptsize
+    \begin{claim}
+        If
+
+        \begin{align}
+            P(\mathbf{w}|\mathbf{t}_1,\ldots,\mathbf{t}_n)&=\mathcal{N}(\mathbf{w}|\mathbf{m}_n,\mathbf{S}_n)\label{eq:conjPriorPrior}\\
+            P(\mathbf{t}_{n+1}|\mathbf{w})&=\mathcal{N}(\mathbf{t}_{n+1}|\boldsymbol{\Phi}\mathbf{w},\beta^{-1}\mathbf{I})\label{eq:conjPriorLike}
+        \end{align}
+
+        then
+
+        \begin{align*}
+            P(\mathbf{w}|\mathbf{t}_1,\ldots,\mathbf{t}_{n+1})=\mathcal{N}(\mathbf{w}|\mathbf{m}_{n+1},\mathbf{S}_{n+1})
+        \end{align*}
+
+        with
+
+        \begin{align}
+            S_{n+1}=\ &S_n-(\beta^{-1}+\phi(\mathbf{x}_{n+1})^\intercal S_n\phi(\mathbf{x}_{n+1}))^{-1}S_n\phi(\mathbf{x}_{n+1})\phi(\mathbf{x}_{n+1})^\intercal
+            S_n\label{eq:Sn+1}\\
+            m_{n+1}=\ &\beta t_{n+1}S_{n+1}\phi(\mathbf{x}_{n+1})+\mathbf{m}_n-\nonumber\\
+                      &(\beta^{-1}+\phi(\mathbf{x}_{n+1})^\intercal
+                      S_n\phi(\mathbf{x}_{n+1}))^{-1}\phi(x_{n+1})^\intercal\mathbf{m}_nS_n\phi(x_{n+1})\label{eq:mn+1}
+        \end{align}
+        \label{claim:conjPriorForBayesianLinearRegression}
+    \end{claim}
+    \normalsize
 \end{frame}
 
-\end{document}
+\begin{frame}
+    \frametitle{Python code for online Bayesian linear regression}
 
-    \end{probExercise}
-    We integrate Eq.~\ref{eq:modelComparison} using the expression for the
-    marginal of the linear Gaussian model,
-    Eq.~\ref{eq:marginalLinearGaussianModel}, obtaining
+    Available
+    \href{https://joacorapela.github.io/gcnuBridging2023/auto\_examples/bayesianLinearRegression/plotOnlineBayesianLinearRegression.html\#sphx-glr-auto-examples-bayesianlinearregression-plotonlinebayesianlinearregression-py}{here}.
 
-    \begin{align}
-        p(\mathbf{t}|\alpha,\beta)=\mathcal{N}(\mathbf{t}|\mathbf{0},\alpha^{-1}\boldsymbol{\phi}\boldsymbol{\Phi}^\intercal+\beta^{-1}\mathbf{I}_N)
-    \end{align}
+\end{frame}
 
-    \normalsize
+\begin{frame}
+
+\begin{alertblock}{Notes}
+    \begin{itemize}
+
+        \item We have learned how to do linear regression in Python.
+
+        \item However, we are in the first Bonsai conference. Let's do online
+            Bayesian linear regression in Bonsai.
+
+    \end{itemize}
+\end{alertblock}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Online Bayesian linear regression in Bonsai}
+
+    \begin{center}
+        \href{https://github.com/joacorapela/bonsai-oblrSimpleLinearRegressionDemo}{\includegraphics[width=4.0in]{figures/workflowOBLR.png}}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Recursive least squares in Bonsai}
+
+    \begin{center}
+        \href{https://github.com/joacorapela/bonsai-rlsSimpleLinearRegression}{\includegraphics[width=4.0in]{figures/workflowRLS.png}}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Estimating receptive fields of cortical visual neurons in Bonsai}
+
+    \begin{center}
+        \href{https://github.com/joacorapela/bonsai-oblr-corticalSimpleCellEx}{\includegraphics[width=4.0in]{figures/workflowOBLRsimpleCell.png}}
+    \end{center}
+
 \end{frame}
 
 \begin{frame}
@@ -536,4 +673,3 @@ of the basis function linear regression model.
 \end{frame}
 
 \end{document}
-
