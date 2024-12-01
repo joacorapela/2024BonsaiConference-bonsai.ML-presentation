@@ -40,12 +40,17 @@
 \newcommand{\conti}{\setcounter{enumi}{\value{saveenumi}}}
 \newcommand{\keepi}{\addtocounter{saveenumi}{-1}\setcounter{enumi}{\value{saveenumi}}}
 
+\setcounter{tocdepth}{1}
+
+\setbeameroption{show notes} % un-comment to see the notes
+
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
 % Title page details
 \title{Bonsai.ML}
 \subtitle{Intelligent Experimental Control}
+\titlegraphic{\includegraphics[width=.5in]{figures/bonsaiMLlogo.png}}
 \author{Nicholas Guilbeault and Gon\c{c}alo Lopes and Joaqu\'{i}n Rapela}
 \institute{Gatsby Computational Neuroscience Unit\\NeuroGEARS Ltd.}
 \date{December 5, 2024}
@@ -109,6 +114,8 @@
     \frametitle{Bonsai.ML demos}
 
 \end{frame}
+
+\input{introduction}
 
 \section{Linear Regression}
 
@@ -203,29 +210,55 @@
 
 \end{frame}
 
+\section{Roadmap}
+
 \section{Discussion}
 
 \begin{frame}
     \frametitle{Discussion}
 
     \begin{itemize}
-        \item interactions between experimental and computational
-            neuroscientists (documentation)
 
-        \item Bonsai.ML roadmap
-
+        \item how to disseminate Bonsai.ML?
             \begin{itemize}
 
-                \item our proposal
-                \item suggestions?
+                \item distribute methods, with high-quality code,
+                    documentation and examples.
+
+                \item publish papers.
+
+                \item collaborate with experimentalists to use Bonsai.ML
+                    to tackle interesting neuroscience problems.
+
+                \item train the trainers.
+
+                \item train Bonsai users on basic machine learning topics.
+
+                \item find a killer Bonsai.ML application.
 
             \end{itemize}
+
+        \item suggestions for Bonsai.ML roadmap?
 
         \item suggestions for:
 
             \begin{itemize}
                 \item new ML models to integrate into Bonsai
                 \item new applications areas to investigate with Bonsai.ML
+
+                    \begin{itemize}
+
+                        \item testing causality of brain activity patterns on
+                            behaviour
+
+                        \item online selection of data to save (e.g. cameras)
+
+                        \item Bonsai for online data analysis (e.g., Terry
+                            Sejnowski: for very large datasets, retrieval could
+                            be very onerous, so you'd better analyze data
+                            online).
+                    \end{itemize}
+
             \end{itemize}
 
     \end{itemize}
@@ -237,7 +270,7 @@
 
     \tiny{
         \bibliographystyle{apalike}
-        \bibliography{probability,informationTheory,machineLearning,gaussianProcesses,latentsVariablesModels,linearDynamicalSystems,numericalMethods}
+        \bibliography{probability,informationTheory,machineLearning,gaussianProcesses,latentsVariablesModels,linearDynamicalSystems,numericalMethods,travelingWaves,receptiveFields,eeg,epilepsy}
     }
 \end{frame}
 
