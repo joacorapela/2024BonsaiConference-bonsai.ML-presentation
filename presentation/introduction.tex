@@ -210,6 +210,108 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Large variety of machine learning models}
+
+    \begin{center}
+        \includegraphics[width=4.5in]{figures/ml_map.png}
+    \end{center}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Our choices}
+
+    We decided to focus on:
+
+    \begin{itemize}
+
+        \item neuro applications,
+
+        \item Bayesian probabilistic models.
+
+    \end{itemize}
+
+    \onslide<2-> {
+    Shall we distribute machine learning software:
+
+    \begin{itemize}
+
+        \item addressing a single need (e.g., deeplabcut for tracking body
+            parts, or MOSEQ for inferring behavioral syllables), or
+
+        \item generic ML software addressing multiple needs (e.g., linear
+            dynamical systems that can be use to infer kinematics, or to
+            discover neural latent variables from population recordings)?
+
+    \end{itemize}
+
+    We opted for the latter.
+    }
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Current Bonsai.ML software}
+
+    We built:
+
+    \begin{itemize}
+
+        \item linear dynamical systems to characterize kinematics of foraging
+            mice,
+
+        \item hidden Markov models to estimate discrete behavioral states
+            (i.e., behavioral syllables) of foraging mice.
+
+    \end{itemize}
+
+    \onslide<2->{
+    We are now working on:
+
+    \begin{itemize}
+
+        \item online Bayesian linear regression models to, for example, estimate receptive
+            fields of visual neurons,
+
+        \item mark-based hippocampal decoding methods to characterize replay in
+            rodents, without spike sorting.
+
+    \end{itemize}
+    }
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Dissemination}
+
+    \begin{itemize}[<+->]
+
+        \item we may add excellent machine learning functionality to Bonsai
+            that nobody uses, since some knowlege of machine learning is needed
+            to use generic machine learning models.
+
+        \item reviewer comment: \emph{by adding machine learning methods
+            to Bonsai, you may be doing more harm than good}.
+
+        \item focus on documentation, dissemination and early collaborations.
+
+        \item problem driven or tool driven? I prefer to be problem driven,
+            collaborate with experimental scientists using Bonsai.ML to solve
+            specific problems, and then disseminate the Bonsai tool plus with
+            the example problems we solved together.
+
+        \item we have the privilege of working on one of the most prestigeous
+            centers for experimental neuroscience. We want to apply our
+            Bonsai.ML tools to help them process their data.
+
+        \item or perhaps we should be patient, add excellent ML methods to
+            Bonsai, and mabye people will use them.
+
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}
     \frametitle{A new type of machine learning for Bonsai}
 
     Most machine learning methods used today:
