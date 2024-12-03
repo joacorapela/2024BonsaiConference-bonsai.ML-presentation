@@ -4,4 +4,4 @@ presentation/*
 !presentation/*.pdf
 !presentation/Makefile
 !presentation/*.bib
-
+!presentation/figures/

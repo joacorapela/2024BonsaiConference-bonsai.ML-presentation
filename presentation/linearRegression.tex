@@ -338,8 +338,8 @@ term corresponding to $\boldsymbol{\mu}$ will be the minimum.
 
 \begin{alertblock}{Notes}
     \begin{itemize}
-        \item So far we have assummed deterministic parameters. But they are
-            random quantities.
+        \item So far we have assummed deterministic parameters. But it is
+            useful to treat them as random quantities.
         \item How can we build linear regression models for random parameters?
     \end{itemize}
 \end{alertblock}
@@ -646,15 +646,6 @@ of the basis function linear regression model.
 \end{frame}
 
 \begin{frame}
-    \frametitle{Recursive least squares in Bonsai}
-
-    \begin{center}
-        \href{https://github.com/joacorapela/bonsai-rlsSimpleLinearRegression}{\includegraphics[width=4.0in]{figures/workflowRLS.png}}
-    \end{center}
-
-\end{frame}
-
-\begin{frame}
     \frametitle{Estimating receptive fields of cortical visual neurons in Bonsai}
 
     \begin{center}
@@ -664,12 +655,58 @@ of the basis function linear regression model.
 \end{frame}
 
 \begin{frame}
-    \frametitle{References}
+    \frametitle{Is online Bayesian linear regression adaptive?}
 
-    \tiny{
-        \bibliographystyle{apalike}
-        \bibliography{probability,informationTheory,machineLearning,gaussianProcesses,latentsVariablesModels,linearDynamicalSystems,numericalMethods}
+    Let's try it:
+
+    \begin{center}
+        \href{https://github.com/joacorapela/bonsai-oblrSimpleLinearRegressionDemo}{\includegraphics[width=2.0in]{figures/workflowOBLR.png}}
+    \end{center}
+
+    \onslide<2-> {
+    Above we saw that:
+
+    \begin{align*}
+        \log p(\mathbf{w}|\boldsymbol{t})&=K-\frac{\beta}{2}||\mathbf{t}-\boldsymbol{\Phi}\mathbf{w}||_2^2-\frac{\alpha}{2}||\mathbf{w}||_2^2
+    \end{align*}
+
+    So, online Bayesian linear regression should not be adaptive.
     }
+
 \end{frame}
 
-\end{document}
+\begin{frame}
+    \frametitle{Funes, the memorious}
+
+    \begin{center}
+        \href{https://vigeland.caltech.edu/ist4/lectures/funes\%20borges.pdf}{\includegraphics[width=1.5in]{figures/funesElMemorioso}}
+    \end{center}
+    \hfill\scriptsize Borges, J. L. (1962).  \href{https://vigeland.caltech.edu/ist4/lectures/funes\%20borges.pdf}{Funes,
+    the memorious} (pp. 59-66).
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Recursive least squares}
+
+    \begin{align*}
+        \mathbf{w}_i&=\argmin_\mathbf{w}\left[\lambda^{(i+1)}||\mathbf{w}||^2+\sum_{j=0}^i\lambda^{i-j}|y(\mathbf{x}_j)-\phi^\intercal(\mathbf{x}_j)\mathbf{w}|^2\right]\\
+        with&\\
+        \mathbf{w}_i&=\mathbf{w}_{i-1}+P_i\;\phi(\mathbf{x}_i)\left[y(\mathbf{x}_i)-\phi^\intercal(\mathbf{x}_i)\;\mathbf{w}_{i-1}\right]\\
+        P_i&=\lambda^{-1}\left[P_{i-1}-\frac{\lambda^{-1}P_{i-1}\phi_i\phi_i^\intercal P_i^{-1}}{1+\lambda^{-1}\phi(\mathbf{x}_i^\intercal P_{i-1}\phi(\mathbf{x}_i)}\right]\\
+        P_1&=\epsilon^{-1}I\\
+        0&\ll\lambda\le 1
+    \end{align*}
+
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Recursive least squares in Bonsai}
+
+    \begin{center}
+        \href{https://github.com/joacorapela/bonsai-rlsSimpleLinearRegression}{\includegraphics[width=4.0in]{figures/workflowRLS.png}}
+    \end{center}
+
+\end{frame}
+

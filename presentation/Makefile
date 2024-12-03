@@ -1,6 +1,6 @@
 all: bonsaiML.pdf
 
-%.pdf: %.tex linearRegression.tex
+%.pdf: %.tex introduction.tex linearRegression.tex 
 	pdflatex $<
 	bibtex $*.aux
 	pdflatex $<
