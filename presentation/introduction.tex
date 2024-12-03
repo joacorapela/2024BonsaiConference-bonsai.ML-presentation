@@ -4,7 +4,7 @@
     \frametitle{AEON project}
 
     We are building a new type of experimentation:
-    continual recording of behavioral and neural data of mice foraging in large
+    continual recording of behavioural and neural data of mice foraging in large
     arenas for weeks to months.
 
     \begin{center}
@@ -60,7 +60,7 @@
     \item but the grant reviewers helped me understand how good Bonsai was :)
     \item controlling experiments using advanced machine learning methods
         \begin{itemize}
-            \item e.g., testing causality of neural patterns on behavior; deactivate a brain region when you forecast the appearance of a pattern of brain activity related to a given behavior, and check if after the deactivation the behavioral pattern disappears
+            \item e.g., testing causality of neural patterns on behaviour; deactivate a brain region when you forecast the appearance of a pattern of brain activity related to a given behaviour, and check if after the deactivation the behavioural pattern disappears
             \item  e.g., only visually stimulate an animal until you achieve a certain precision in the receptive field estimation
         \end{itemize}
 }
@@ -83,7 +83,7 @@
             measurements and speech production in
             humans~\citep{rapelaInPrepTWsInSpeech,rapelaInPrepSyncTWs,rapelaInPrepSyncTWsII},
 
-        \item unsupervised models to characterize epilepsy using Utah array
+        \item unsupervised models to characterise epilepsy using Utah array
             recordings from
             humans~\citep{rapelaEtAl19-epilepsy-tsne,rapelaAndTodorov19-epilepsy-hmm}.
 
@@ -109,7 +109,7 @@
 
                 \item[unsupervised methods] discover structure in inputs X, without any output, like in clustering
 
-                \item[reinforcement learning methods] learn relations between inputs X and actions a to maximize future rewards.
+                \item[reinforcement learning methods] learn relations between inputs X and actions a to maximise future rewards.
 
             \end{description}
 
@@ -172,7 +172,7 @@
       quantities, and seek to estimate their distribution.
 
                 \item[deterministic models]treat their variables of interest as deterministic
-      quantitities.
+      quantities.
 
             \end{description}
 
@@ -182,7 +182,7 @@
 
             \item[non-reactive inference models] perform inference by following a pre-established sequence of steps, assuming availability of data before each step begins.
 
-            \item[reactive inference models] react to data availabilty performing a inference step only when data becomes available. Reactive inference models allow continuous inference in scenarios were data sources (e.g., cameras) can appear or dissappear over time.
+            \item[reactive inference models] react to data availability performing a inference step only when data becomes available. Reactive inference models allow continuous inference in scenarios were data sources (e.g., cameras) can appear or disappear over time.
 
             \end{description}
 
@@ -201,7 +201,7 @@
 
         \item[are non-stationary] can process data with time-varying statistics
 
-        \item[can handle time-series datasets] as most neuroscience datasets are time series (e.g., behavioral videos, neuron spike counts).
+        \item[can handle time-series datasets] as most neuroscience datasets are time series (e.g., behavioural videos, neuron spike counts).
 
         \item[are reactive] can continue doing inference when adding/removing data sources
 
@@ -237,7 +237,7 @@
     \begin{itemize}
 
         \item addressing a single need (e.g., deeplabcut for tracking body
-            parts, or MOSEQ for inferring behavioral syllables), or
+            parts, or MOSEQ for inferring behavioural syllables), or
 
         \item generic ML software addressing multiple needs (e.g., linear
             dynamical systems that can be use to infer kinematics, or to
@@ -257,11 +257,11 @@
 
     \begin{itemize}
 
-        \item linear dynamical systems to characterize kinematics of foraging
+        \item linear dynamical systems to characterise kinematics of foraging
             mice,
 
-        \item hidden Markov models to estimate discrete behavioral states
-            (i.e., behavioral syllables) of foraging mice.
+        \item hidden Markov models to estimate discrete behavioural states
+            (i.e., behavioural syllables) of foraging mice.
 
     \end{itemize}
 
@@ -273,7 +273,7 @@
         \item online Bayesian linear regression models to, for example, estimate receptive
             fields of visual neurons,
 
-        \item mark-based hippocampal decoding methods to characterize replay in
+        \item mark-based hippocampal decoding methods to characterise replay in
             rodents, without spike sorting.
 
     \end{itemize}
@@ -287,7 +287,7 @@
     \begin{itemize}[<+->]
 
         \item we may add excellent machine learning functionality to Bonsai
-            that nobody uses, since some knowlege of machine learning is needed
+            that nobody uses, since some knowledge of machine learning is needed
             to use generic machine learning models.
 
         \item reviewer comment: \emph{by adding machine learning methods
@@ -300,12 +300,12 @@
             specific problems, and then disseminate the Bonsai tool plus with
             the example problems we solved together.
 
-        \item we have the privilege of working on one of the most prestigeous
-            centers for experimental neuroscience. We want to apply our
+        \item we have the privilege of working on one of the most prestigious
+            centres for experimental neuroscience. We want to apply our
             Bonsai.ML tools to help them process their data.
 
         \item or perhaps we should be patient, add excellent ML methods to
-            Bonsai, and mabye people will use them.
+            Bonsai, and maybe people will use them.
 
     \end{itemize}
 
@@ -314,29 +314,20 @@
 \begin{frame}
     \frametitle{A new type of machine learning for Bonsai}
 
-    Most machine learning methods used today:
+    We are excited about working on a new type of machine learning for Bonsai.
+    One that:
 
     \begin{itemize}
 
-        \item process \textbf{offline} (i.e., dead) finite data that has been saved to files,
+        \item process datastreams online,
 
-        \item assume that the characteristics of data are constant across time
-            (i.e., \textbf{stationarity assumption}).
+        \item allows non-stationary datastreams,
 
-    \end{itemize}
-
-    \onslide<2->{
-    But Bonsai needs machine learning methods that:
-
-    \begin{itemize}
-
-        \item process \textbf{online} (i.e., live) potentially infinite
-            datastreams,
-
-        \item can operate on data with characteristics that change across time
-            (i.e., \textbf{non-stationarity assumption}).
+        \item is reactive.
 
     \end{itemize}
-    }
+
+    We trust that this new type of machine learning will uncover new findings
+    on behaviour and brain function.
 
 \end{frame}
